@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript Practice Session</title>
+</head>
+<body>
+    <script>
+
+        // Day_5 Task
+        
+    //     var users =[
+    //         {
+    //          firstName: 'Abhishek',
+    //          lastName: 'Sharma',
+    //          age: 24,
+    //          address:{
+    //              houseNumber: 2117,
+    //              locality: 'Sector 71',
+    //              city: 'Mohali',
+    //              state: 'Punjab',
+    //              zipCode: '160071'
+    //          },
+    //          skills: ['Html', 'Css', 'JavaScript', 'CMS'],
+    //         },
+    //         {
+    //          firstName: 'Ajay',
+    //          lastName: 'Kumar',
+    //          age: 25,
+    //          address:{
+    //              houseNumber: 2117,
+    //              locality: 'Sector 71',
+    //              city: 'Mohali',
+    //              state: 'Punjab',
+    //              zipCode: '160071'
+    //          },
+    //          skills: ['NodeJS', 'PHP', 'JavaScript', 'React'],             
+    //         },
+    //         {
+    //          firstName: 'Devyani',
+    //          lastName: 'Puri',
+    //          age: 25,
+    //          address:{
+    //              houseNumber: 300,
+    //              locality: 'Sector 59',
+    //              city: 'Mohali',
+    //              state: 'Punjab',
+    //              zipCode: '160059'
+    //          },
+    //          skills: ['Digital Marketing', 'Content Writing', 'SEO', 'Wordpress'],             
+    //         }
+    // ]
+
+    //         function userFunc(param){
+    //             for(i=0; i < param.length; i++){
+    //                 var j = param[i];
+    //                 console.log("Hi! I am " + j.firstName + " " + j.lastName + "." + " My age is " + j.age + "." + " I am living in " + "#" + j.address.houseNumber + " -" + " " + j.address.locality + ", " + j.address.city + ", " + j.address.state + "." + " I have a basic knowlegde of " + j.skills[0] + ", " + j.skills[1] + ", " + j.skills[2] + ".");
+    //             }
+    //         }
+    //         function cbFunc(cb, param){
+    //             return cb(param);
+    //         }
+    //         cbFunc(userFunc, users);
+
+
+
+        
+
+        //Day_6 Task
+
+            var users = [];
+
+            function Usersfunc(firstName, lastName, age, address, skills, isMarried ){
+                this.firstName = firstName;
+                this.lastName = lastName;
+                this.age = age;
+                this.skills = skills;
+                this.address = address;
+                this.isMarried = isMarried;
+                this.printUsers = function(){
+                    return`Hi! I am ${this.firstName} ${this.lastName} and I am ${this.age} years old. I am living in house number ${this.address.houseNum}, ${this.address.locality}, ${this.address.city}. I have knowledge of ${this.skills.join(", ")}. I am ${this.isMarried? "Married": "Single."}`;
+                }
+            }
+            var obj1 = {
+                houseNum: '#2117',
+                locality: 'Sector 71',
+                city: 'Mohali'
+            }
+            var obj2 = {
+                houseNum: '#22',
+                locality: 'Seattle',
+                city: 'Washington DC'
+            }
+            users.push(new Usersfunc('Jasmeet', 'Singh', 24, obj1, ['Html', 'CSS', 'Javascript Basics'], false, ));
+            users.push( new Usersfunc('John', ' Colin', 36, obj2, ['Html', 'CSS', 'Angular', 'React', 'NodeJS'], true ));
+            console.log(users);
+            for(i=0; i < users.length; i++){
+                console.log(users[i].printUsers());
+            }
+
+            var myJson = users;            
+            localStorage.setItem('usersData', myJson);
+            // console.log(localStorage.getItem('usersData'))
+    </script>
+</body>
+</html>

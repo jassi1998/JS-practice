@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task 3</title>
+    <style>
+      .card {
+        background-color: #fff;
+        border: 1px solid rgba(0, 0, 0, 0.125);
+        border-radius: 0.25rem;
+      }
+      .card-body {
+        padding: 1rem;
+      }
+      .card_img {
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Enter values to update card.</h2>
+    <input type="text" name="name" id="name" placeholder="Enter Your Name" >
+    <input type="number" name="age" id="age" placeholder="Enter Your Name">
+    <Label>Click checkbox if you are married.</Label>
+    <input type="checkbox" name="isMarried" id="isMarried">
+    <input type="submit" value="submit" id="submit" onclick = "handleInput()">
+    <div id="app"></div>
+    <script>
+      var app = document.getElementById("app");
+
+      var card = document.createElement("DIV");
+      card.setAttribute("class", "card");
+      card.style= 'width: 20rem; margin: 0 auto;';
+
+      var image = document.createElement("IMG");
+      var imgAttr = {
+        src: "./dummy-img.webp",
+        style: "width: 100%",
+        alt: "Dummy image",
+      };
+
+      function setAttributes(element, attributes) {
+        Object.keys(imgAttr).forEach((attr) => {
+          element.setAttribute(attr, attributes[attr]);
+        });
+      }
+      setAttributes(image, imgAttr);
+
+      var cardBody = document.createElement("DIV");
+      cardBody.setAttribute("class", "card-body");
+
+      var userName = document.createElement("DIV");
+      userName.innerHTML = "Name:- "
+      var uName = document.createElement("STRONG");
+      userName.insertAdjacentElement("beforeend", uName);
+      var userAge = document.createElement("DIV");
+      userAge.innerHTML = "Age:- "
+      var age = document.createElement("STRONG");
+      userAge.insertAdjacentElement("beforeend", age);
+      var userDes = document.createElement("DIV");      
+      userDes.innerHTML = "Married:- "
+      var des = document.createElement("STRONG");
+      userDes.insertAdjacentElement("beforeend", des)
+
+      app.appendChild(card);
+      card.appendChild(image);
+      card.appendChild(cardBody);
+      cardBody.appendChild(userName);
+      cardBody.appendChild(userAge);
+      cardBody.appendChild(userDes);
+
+
+   var nameInput = document.querySelector("#name");
+   var ageInput = document.querySelector("#age");
+   var checkbox = document.querySelector("#isMarried");
+   var submit = document.querySelector("#submit");
+
+   function handleInput(){
+    uName.innerHTML = nameInput.value;
+    age.innerHTML = ageInput.value;
+    if(isMarried.checked === true){
+      des.innerHTML = 'Married';
+    }
+    else {
+      des.innerHTML = 'Unmarried';
+    }
+   }
+
+    </script>
+  </body>
+</html>
